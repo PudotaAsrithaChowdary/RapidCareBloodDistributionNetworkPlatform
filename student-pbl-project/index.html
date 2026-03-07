@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidCare Blood Distribution Network Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>RapidCare Blood Distribution Network Platform</h1>
+    </header>
+
+    <nav class="site-nav">
+        <a href="#" class="nav-link active" data-tab="home">Home</a>
+        <a href="#" class="nav-link" data-tab="login">Login</a>
+        <a href="#" class="nav-link" data-tab="register">Register</a>
+        <a href="#" class="nav-link" data-tab="donor">Donor</a>
+        <a href="#" class="nav-link" data-tab="stock">Stock</a>
+    </nav>
+
+    <main class="site-main">
+        <section id="panel-home" class="panel active">
+            <section class="welcome-section">
+                <h2>Welcome to RapidCare</h2>
+                <p>Efficient and reliable blood distribution system.</p>
+                <p>Connecting donors, hospitals, and patients.</p>
+            </section>
+            <div class="content-box">
+                <section class="input-section">
+                    <input type="text" id="bloodGroup" placeholder="Blood Group (e.g. A+, B-, O+)" maxlength="10">
+                    <input type="text" id="units" placeholder="Units" maxlength="5">
+                    <input type="text" id="hospital" placeholder="Hospital / Location" maxlength="80">
+                    <button id="addBtn" class="btn btn-primary">Add Request</button>
+                </section>
+                <section class="actions">
+                    <button id="searchBtn" class="btn btn-secondary">Search Request</button>
+                    <button id="sortBtn" class="btn btn-secondary">Sort Requests</button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+                </section>
+                <section class="list-section">
+                    <h3>Blood Distribution Requests</h3>
+                    <ul id="requestList"></ul>
+                    <p id="emptyMsg" class="empty-msg">No requests yet. Add a blood distribution request above.</p>
+                </section>
+                <section class="search-result" id="searchResult"></section>
+            </div>
+        </section>
+
+        <section id="panel-login" class="panel">
+            <section class="welcome-section">
+                <h2>Login</h2>
+                <p>Sign in to manage requests and view stock.</p>
+            </section>
+            <div class="content-box content-box-narrow">
+                <form id="loginForm" class="tab-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email or Username</label>
+                        <input type="text" id="loginEmail" placeholder="Enter email or username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p id="loginMessage" class="form-message"></p>
+            </div>
+        </section>
+
+        <section id="panel-register" class="panel">
+            <section class="welcome-section">
+                <h2>Register</h2>
+                <p>Create an account to participate in the blood distribution network.</p>
+            </section>
+            <div class="content-box content-box-wide">
+                <form id="registerForm" class="tab-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regName">Full Name</label>
+                            <input type="text" id="regName" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email</label>
+                            <input type="email" id="regEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regPhone">Phone</label>
+                            <input type="tel" id="regPhone" placeholder="10-digit mobile number" maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="regBloodGroup">Blood Group</label>
+                            <select id="regBloodGroup">
+                                <option value="">Select</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regCity">City / Location</label>
+                        <input type="text" id="regCity" placeholder="City or area" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+                <p id="registerMessage" class="form-message"></p>
+            </div>
+        </section>
+
+        <section id="panel-donor" class="panel">
+            <section class="welcome-section">
+                <h2>Donor Information</h2>
+                <p>Our registered donors help save lives. Register as a donor or view donor guidelines.</p>
+            </section>
+            <div class="content-box content-box-wide">
+                <h3>Registered Donors</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Blood Group</th>
+                                <th>Contact</th>
+                                <th>Last Donated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ravi Kumar</td><td>A+</td><td>98765 43210</td><td>Jan 2026</td></tr>
+                            <tr><td>Priya Sharma</td><td>O+</td><td>91234 56789</td><td>Feb 2026</td></tr>
+                            <tr><td>Amit Patel</td><td>B+</td><td>99887 76655</td><td>Dec 2025</td></tr>
+                            <tr><td>Sneha Reddy</td><td>AB+</td><td>97654 32109</td><td>Jan 2026</td></tr>
+                            <tr><td>Vikram Singh</td><td>O-</td><td>96543 21098</td><td>Nov 2025</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="info-card">
+                    <h4>Want to become a donor?</h4>
+                    <p>Go to <strong>Register</strong> and fill your details. We will contact you when your blood group is needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="panel-stock" class="panel">
+            <section class="welcome-section">
+                <h2>Blood Stock</h2>
+                <p>Current availability across our network. Units are updated regularly.</p>
+            </section>
+            <div class="content-box content-box-wide">
+                <h3>Available Stock</h3>
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Blood Group</th>
+                                <th>Units Available</th>
+                                <th>Location</th>
+                                <th>Last Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A+</td><td>45</td><td>Central Blood Bank</td><td>05 Mar 2026</td></tr>
+                            <tr><td>A-</td><td>12</td><td>Central Blood Bank</td><td>05 Mar 2026</td></tr>
+                            <tr><td>B+</td><td>38</td><td>Central Blood Bank</td><td>05 Mar 2026</td></tr>
+                            <tr><td>B-</td><td>8</td><td>Central Blood Bank</td><td>04 Mar 2026</td></tr>
+                            <tr><td>O+</td><td>62</td><td>Central Blood Bank</td><td>05 Mar 2026</td></tr>
+                            <tr><td>O-</td><td>15</td><td>Central Blood Bank</td><td>05 Mar 2026</td></tr>
+                            <tr><td>AB+</td><td>22</td><td>Central Blood Bank</td><td>05 Mar 2026</td></tr>
+                            <tr><td>AB-</td><td>5</td><td>Central Blood Bank</td><td>03 Mar 2026</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">Contact your nearest hospital for urgent requests.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 RapidCare | All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidCare Blood Distribution (DSA Version)</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>RapidCare Blood Distribution Network Platform</h1>
+    </header>
+
+    <nav class="site-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Login</a>
+        <a href="#" class="nav-link">Register</a>
+        <a href="#" class="nav-link">Donor</a>
+        <a href="#" class="nav-link">Stock</a>
+    </nav>
+
+    <main class="site-main">
+        <section class="welcome-section">
+            <h2>Welcome to RapidCare</h2>
+            <p>Efficient and reliable blood distribution system.</p>
+            <p>Connecting donors, hospitals, and patients.</p>
+            <p class="dsa-badge">DSA Version — Stack, Queue, Search & Sort</p>
+        </section>
+
+        <div class="content-box">
+            <section class="input-section">
+                <input type="text" id="bloodGroup" placeholder="Blood Group (e.g. A+, B-)" maxlength="10">
+                <input type="text" id="units" placeholder="Units" maxlength="5">
+                <input type="text" id="hospital" placeholder="Hospital / Location" maxlength="80">
+                <button id="addBtn" class="btn btn-primary">Add Request</button>
+            </section>
+
+            <section class="actions">
+                <button id="undoBtn" class="btn btn-secondary">Undo (Stack)</button>
+                <button id="processNextBtn" class="btn btn-secondary">Process Next (Queue)</button>
+                <button id="searchBtn" class="btn btn-secondary">Search Request</button>
+                <button id="sortBtn" class="btn btn-secondary">Sort Requests</button>
+                <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+            </section>
+
+            <section class="list-section">
+                <h3>Blood Distribution Requests</h3>
+                <ul id="requestList"></ul>
+                <p id="emptyMsg" class="empty-msg">No requests yet. Add a blood distribution request above.</p>
+            </section>
+
+            <section class="search-result" id="searchResult"></section>
+            <p class="dsa-hint">Open Browser Console (F12) to see DSA output.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 RapidCare | All Rights Reserved</p>
+    </footer>
+    <script src="script-dsa.js"></script>
+</body>
+</html>
